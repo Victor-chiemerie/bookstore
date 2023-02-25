@@ -106,7 +106,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-1. Go to the [repository page](https://github.com/RaphDasilva/Bookstore).
+1. Go to the [repository page](https://github.com/Victor-chiemerie/bookstore.git).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <link>`.
 
@@ -163,10 +163,10 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Raphael Okolo**
+👤 **Nwadinigwe Victor**
 
-- GitHub: [@githubhandle](https://github.com/RaphDasilva)
-- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/raphael-okolo-480012227/)
+- GitHub: [@githubhandle](https://github.com/Victor-chiemerie)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/victor-nwadinigwe-460475246/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
