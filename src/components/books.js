@@ -1,43 +1,32 @@
 import React from 'react';
-import Book from './Book';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/booksSlice';
 import Form from './Form';
 
-const data = [
-  {
-    id: 1,
-    title: 'Game of Thrones',
-    author: 'J.R Tolkein',
-  },
-  {
-    id: 2,
-    title: 'There was a Country',
-    author: 'Chinua Achebe',
-  },
-  {
-    id: 3,
-    title: 'Half of a Yellow Sun',
-    author: 'Chimamanda Adichie',
-  },
-  {
-    id: 4,
-    title: 'Welcome to Lagos',
-    author: 'Chibundu Onuzo',
-  },
-];
-
-const Books = () => (
-  <>
-    <ul className="allBooks">
+const Books = () => {
+  const { booklist } = useSelector((store) => store.book);
+  console.log(booklist);
+  const dispatch = useDispatch();
+  const displayBook = booklist.length ? (
+    <ul>
       {
-          data.map((book) => (
-            <li key={book.id}>
-              <Book title={book.title} author={book.author} />
-            </li>
-          ))
-        }
+      booklist.map((book) => (
+        <li key={book.id}>
+          <h2>{book.title}</h2>
+          <p>{book.author}</p>
+          <button type="button" className="bookButton" onClick={() => dispatch(removeBook(book.id - 1))}>Remove</button>
+        </li>
+      ))
+    }
     </ul>
-    <Form />
-  </>
-);
+  ) : (<p>there is no book on the shelf</p>);
+
+  return (
+    <>
+      {displayBook}
+      <Form />
+    </>
+  );
+};
 
 export default Books;
