@@ -5,7 +5,6 @@ import Form from './Form';
 
 const Books = () => {
   const { booklist } = useSelector((store) => store.book);
-  console.log(booklist);
   const dispatch = useDispatch();
   const displayBook = booklist.length ? (
     <ul>
