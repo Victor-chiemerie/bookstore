@@ -13,7 +13,8 @@ const Books = () => {
         <li key={book.id}>
           <h2>{book.title}</h2>
           <p>{book.author}</p>
-          <button type="button" className="bookButton" onClick={() => dispatch(removeBook(book.id - 1))}>Remove</button>
+          <p>{book.category}</p>
+          <button type="button" className="bookButton" onClick={() => dispatch(removeBook(book.id))}>Remove</button>
         </li>
       ))
     }

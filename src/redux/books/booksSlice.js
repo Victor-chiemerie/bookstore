@@ -11,9 +11,10 @@ export const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      state.booklist.push(action.payload);
-    },
+    addBook: (state, action) => ({
+      ...state,
+      booklist: [...state.booklist, action.payload],
+    }),
     removeBook: (state, action) => {
       state.booklist.splice(state.booklist.findIndex(
         (book) => book.id === action.payload,
