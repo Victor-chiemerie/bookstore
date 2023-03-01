@@ -7,11 +7,14 @@ import { addBook } from '../redux/books/booksSlice';
 const Form = () => {
   const [title, setTitle] = useState({});
   const [author, setAuthor] = useState({});
+  const [category, setCategory] = useState({});
   const dispatch = useDispatch();
 
   const addBookHandler = (event) => {
     event.preventDefault();
-    const book = { id: uuidv4(), ...title, ...author };
+    const book = {
+      id: uuidv4(), ...title, ...author, ...category,
+    };
     dispatch(addBook(book));
     event.target.reset();
   };
@@ -25,6 +28,7 @@ const Form = () => {
           <option className="author" value="Adeyemi">Adeyemi</option>
           <option className="author" value="Chimamanda Adichie">Chimamanda Adichie</option>
         </select>
+        <input className="categoryInput" type="text" placeholder="Category" onChange={(e) => setCategory({ category: e.target.value })} />
         <button type="submit" className="formButton">
           Add Book
         </button>
