@@ -1,28 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
-import bookStore from './bookShop';
+import { postBooks, fetchBooks, deleteBooks } from '../API/getAPI';
 
 const initialState = {
-  booklist: bookStore,
-  amount: bookStore.length,
-  total: 0,
+  booklist: [],
+  totalbooks: 0,
+  status: 'idle',
+  error: null,
+  createdStatus: '',
+  deletedStatus: '',
 };
 
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {
-    addBook: (state, action) => ({
+  extraReducers(builder) {
+    builder.addCase(fetchBooks.pending, (state) => ({
       ...state,
-      booklist: [...state.booklist, action.payload],
-    }),
-    removeBook: (state, action) => {
-      state.booklist.splice(state.booklist.findIndex(
-        (book) => book.id === action.payload,
-      ), 1);
-    },
+      status: 'loading',
+    }))
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        const keys = Object.keys(action.payload);
+        const temparray = [];
+        keys.forEach((key) => {
+          temparray.push(Object.assign({ id: key }, ...action.payload[key]));
+        });
+        return {
+          ...state,
+          booklist: [...temparray],
+          status: 'loaded',
+          totalbooks: state.booklist.length + 0,
+        };
+      }).addCase(fetchBooks.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: [...state.error, action.error.message],
+      })).addCase(postBooks.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        createdStatus: action.payload,
+      }))
+      .addCase(deleteBooks.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        createdStatus: action.payload,
+        totalbooks: state.booklist.length + 0,
+      }));
   },
 });
-
-export const { addBook, removeBook } = bookSlice.actions;
 
 export default bookSlice.reducer;
