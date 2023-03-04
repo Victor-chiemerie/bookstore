@@ -21,34 +21,32 @@ const Books = () => {
       {
       booklist.map((book) => (
         <li key={book.id}>
-          <li>
-            <div className="title">
-              <h3>Title: </h3>
-              <p>
-                {book.title}
+          <section className="section1">
+            <div className={styles.items}>
+              <p className={styles.firstp}>
+                {book.category}
               </p>
-            </div>
-            <div className="author">
-              <h3>Author: </h3>
-              <p>
+              <h2>
+                {book.title}
+              </h2>
+              <p className={styles.lastp}>
                 {book.author}
               </p>
             </div>
-            <div className="category">
-              <h3>Category: </h3>
-              <p>
-                {book.category}
-              </p>
+            <div className={styles.buttons}>
+              <button type="button">Comment</button>
+              <button
+                type="button"
+                className={styles.middlebutton}
+                onClick={() => dispatch(deleteBooks(book.id))}
+              >
+                Remove
+              </button>
+              <button type="button">Edit</button>
             </div>
-          </li>
-
-          <button
-            type="button"
-            className="bookButton"
-            onClick={() => dispatch(deleteBooks(book.id))}
-          >
-            Remove
-          </button>
+          </section>
+          <section>hello world!</section>
+          <section>hello world!</section>
         </li>
       ))
     }

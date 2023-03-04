@@ -7,15 +7,54 @@
 
 .book {
     margin: 3% 7%;
-    color: aqua;
     display: flex;
     flex-direction: column;
     gap: 20px;
 
     li {
+        background-color: white;
+        border-radius: 8px;
         list-style-type: none;
+        padding: 15px;
         display: flex;
-        gap: 20px;
+        gap: 30px;
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .items {
+                display: flex;
+                flex-direction: column;
+
+                .firstp {
+                    font-weight: 600;
+                    color: grey;
+                }
+                
+                .lastp {
+                    color: #73a2ee;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                gap: 10px;
+
+                button {
+                    background-color: white;
+                    color: #73a2ee;
+                    border: none;
+                }
+
+                .middlebutton {
+                    padding: 0px 10px;
+                    border-left: 1px solid grey;
+                    border-right: 1px solid grey;
+                }
+            }
+        }
 
         div {
             display: flex;
