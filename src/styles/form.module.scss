@@ -20,29 +20,30 @@
     display: flex;
     gap: calc(5% / 3);
 
-    input, select {
-        width: 26%;
-        padding: 10px;
-    margin: 5px 0;
-    height: 100%;
-    border-radius: 10px;
-    font-size: 20px;
-    outline: none;
-    border: 0.1px solid rgba(104, 104, 104, 0.382);
+    input,
+    select {
+      width: 26%;
+      padding: 10px;
+      margin: 5px 0;
+      height: 100%;
+      border-radius: 10px;
+      font-size: 20px;
+      outline: none;
+      border: 0.1px solid rgba(104, 104, 104, 0.382);
     }
 
     button {
-        width: 15%;
-        background-color: rgb(0, 94, 255);
-        padding: 8px 0;
-        margin: 10px 0;
-        font-size: 14px;
-        font-weight: 100;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        color: rgba(255, 255, 255, 0.837);
-        text-transform: uppercase;
+      width: 15%;
+      background-color: rgb(0, 94, 255);
+      padding: 8px 0;
+      margin: 10px 0;
+      font-size: 14px;
+      font-weight: 100;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      color: rgba(255, 255, 255, 0.837);
+      text-transform: uppercase;
     }
   }
 }

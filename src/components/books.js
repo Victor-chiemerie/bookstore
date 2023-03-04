@@ -68,7 +68,7 @@ const Books = () => {
               chapter
               {index}
             </p>
-            <button type="button">update progress</button>
+            <button type="button" className={styles.chap}>update progress</button>
           </section>
         </li>
       ))
