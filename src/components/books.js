@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { fetchBooks, deleteBooks } from '../redux/API/getAPI';
 import Form from './Form';
 
 const Books = () => {
-  const { booklist } = useSelector((store) => store.book);
+  const { booklist, status, totalbooks } = useSelector((store) => store.book);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchBooks());
+    }
+    if (status === 'succeeded') {
+      dispatch(fetchBooks());
+    }
+  }, [status, dispatch]);
+
   const displayBook = booklist.length ? (
     <ul>
       {
@@ -14,7 +23,13 @@ const Books = () => {
           <h2>{book.title}</h2>
           <p>{book.author}</p>
           <p>{book.category}</p>
-          <button type="button" className="bookButton" onClick={() => dispatch(removeBook(book.id))}>Remove</button>
+          <button
+            type="button"
+            className="bookButton"
+            onClick={() => dispatch(deleteBooks(book.id))}
+          >
+            Remove
+          </button>
         </li>
       ))
     }
@@ -23,6 +38,7 @@ const Books = () => {
 
   return (
     <>
+      <div>{totalbooks}</div>
       {displayBook}
       <Form />
     </>
