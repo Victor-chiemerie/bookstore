@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { postBooks } from '../redux/API/getAPI';
+import styles from '../styles/form.module.scss';
 
 const Form = () => {
   const [title, setTitle] = useState('');
@@ -23,7 +24,8 @@ const Form = () => {
     }
   };
   return (
-    <div className="formBox">
+    <div className={styles.formsect}>
+      <h2>ADD NEW BOOK</h2>
       <form onSubmit={addBookHandler}>
         <input required className="titleInput" type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
         <select required className="authorSelect" onChange={(e) => setAuthor(e.target.value)}>

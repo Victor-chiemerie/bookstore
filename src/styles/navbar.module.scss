@@ -1,20 +1,20 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .navbar {
-    padding: 20px 5%;
-    color: #3b82f6;
-    display: flex;
-    align-items: center;
-    background-color: white;
-    gap: 30px;
+  padding: 20px 5%;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  gap: 30px;
 
-    nav {
-        display: flex;
-        gap: 30px;
-    }
+  nav {
+    display: flex;
+    gap: 30px;
+  }
 }
