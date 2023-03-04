@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.formsect {
+  margin: 3% 7%;
+  border-top: 0.7px solid rgb(214, 212, 212);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    color: rgba(128, 128, 128, 0.774);
+  }
+
+  form {
+    display: flex;
+    gap: calc(5% / 3);
+
+    input, select {
+        width: 26%;
+        padding: 10px;
+    margin: 5px 0;
+    height: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none;
+    border: 0.1px solid rgba(104, 104, 104, 0.382);
+    }
+
+    button {
+        width: 15%;
+        background-color: rgb(0, 94, 255);
+        padding: 8px 0;
+        margin: 10px 0;
+        font-size: 14px;
+        font-weight: 100;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        color: rgba(255, 255, 255, 0.837);
+        text-transform: uppercase;
+    }
+  }
+}
