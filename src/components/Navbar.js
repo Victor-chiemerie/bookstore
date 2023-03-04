@@ -9,20 +9,25 @@ const links = [
 
 const Nav = () => (
   <header className={styles.navbar}>
-    <h1>BookStore CMC</h1>
-    <nav>
-      {links.map((link) => (
-        <NavLink
-          key={link.text}
-          to={link.path}
-          style={({ isActive }) => ({
-            color: isActive ? 'black' : 'rgba(24, 24, 23, 0.263)', textDecoration: 'none',
-          })}
-        >
-          {link.text}
-        </NavLink>
-      ))}
-    </nav>
+    <div className={styles.div1}>
+      <h1>BookStore CMC</h1>
+      <nav>
+        {links.map((link) => (
+          <NavLink
+            key={link.text}
+            to={link.path}
+            style={({ isActive }) => ({
+              color: isActive ? 'black' : 'rgba(24, 24, 23, 0.263)', textDecoration: 'none',
+            })}
+          >
+            {link.text}
+          </NavLink>
+        ))}
+      </nav>
+    </div>
+    <div className={styles.right}>
+      <i className="fa-solid fa-user" />
+    </div>
   </header>
 );
 
