@@ -1,13 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import styles from '../styles/navbar.module.scss';
+
+const links = [
+  { path: '/', text: 'Books' },
+  { path: 'categories', text: 'Catergories' },
+];
 
 const Nav = () => (
-  <header>
-    <h1>Bookstore CMC</h1>
-    <nav>
-      <Link to="/">Books</Link>
-      <Link to="/categories">Catergories</Link>
-    </nav>
+  <header className={styles.navbar}>
+    <div className={styles.div1}>
+      <h1>BookStore CMC</h1>
+      <nav>
+        {links.map((link) => (
+          <NavLink
+            key={link.text}
+            to={link.path}
+            style={({ isActive }) => ({
+              color: isActive ? 'black' : 'rgba(24, 24, 23, 0.263)', textDecoration: 'none',
+            })}
+          >
+            {link.text}
+          </NavLink>
+        ))}
+      </nav>
+    </div>
+    <div className={styles.right}>
+      <i className="fa-solid fa-user" />
+    </div>
   </header>
 );
 
