@@ -4,7 +4,7 @@ import { fetchBooks, deleteBooks } from '../redux/API/getAPI';
 import Form from './Form';
 
 const Books = () => {
-  const { booklist, status, totalbooks } = useSelector((store) => store.book);
+  const { booklist, status } = useSelector((store) => store.book);
   const dispatch = useDispatch();
   useEffect(() => {
     if (status === 'idle') {
@@ -38,7 +38,6 @@ const Books = () => {
 
   return (
     <>
-      <div>{totalbooks}</div>
       {displayBook}
       <Form />
     </>
