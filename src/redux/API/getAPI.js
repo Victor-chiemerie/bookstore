@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 
 const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/z9xY0wHY2FpZX8MwxMcy/books/';
