@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import { postBooks, fetchBooks, deleteBooks } from '../API/getAPI';
 
@@ -25,15 +24,12 @@ export const bookSlice = createSlice({
         keys.forEach((key) => {
           temparray.push(Object.assign({ id: key }, ...action.payload[key]));
         });
-        state.booklist = [...temparray];
-        state.status = 'loaded';
-        state.totalbooks += 1;
-        // return {
-        //   ...state,
-        //   booklist: [...temparray],
-        //   status: 'loaded',
-        //   totalbooks: state.booklist.length + 0,
-        // };
+        return {
+          ...state,
+          booklist: [...temparray],
+          status: 'loaded',
+          totalbooks: state.booklist.length + 0,
+        };
       }).addCase(fetchBooks.rejected, (state, action) => ({
         ...state,
         status: 'failed',
